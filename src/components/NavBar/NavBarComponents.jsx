@@ -34,6 +34,21 @@ export const NavMenu = styled.div`
 		position: fixed;
 		top: ${ headerHeight };
 		right: ${({ show }) => ( show ? '-100%' : '0' )};
+		width: 100%;
+		height: 100%;
+		padding: 2rem;
+		transition: 0.5s;
+    }
+	@media screen and (min-width: 768px) {
+		margin-left: auto;
+	}
+`
+
+export const NavItems = styled.div`
+	@media screen and (max-width: 768px) {
+		position: fixed;
+		top: ${ headerHeight };
+		right: ${({ show }) => ( show ? '-100%' : '0' )};
 		width: 80%;
 		height: 100%;
 		padding: 2rem;
