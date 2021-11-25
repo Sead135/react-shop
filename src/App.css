@@ -79,6 +79,9 @@ footer {
 	.bx-menu {
 		display: none;
 	}
+	.nav-toggle {
+		width: 25px;
+	}
 }
 
 @media screen and (min-width: 1024px) {
