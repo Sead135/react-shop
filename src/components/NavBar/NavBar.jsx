@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Nav, Header, NavLogo, NavMenu, NavItem, NavLink, NavList, NavToggle } from './NavBarComponents'
+import { Nav, Header, NavLogo, NavMenu, NavItem, NavLink, NavList, NavToggle, NavItems } from './NavBarComponents'
 
 export const NavBar = ( props ) => {
 
@@ -15,14 +15,16 @@ export const NavBar = ( props ) => {
                     <NavLogo href='#'>Shop</NavLogo>
                 </div>
 
-                <NavMenu show={show}>
-                    <NavList>
-                        {Links.map(link =>
-                            <NavItem key={ link.id } onClick={ () => setActive(link.id) }>
-                                <NavLink href={ link.link } active={ active === link.id ? active : '' } onClick={() => setShow(!show)}>{ link.title }</NavLink>
-                            </NavItem>
-                        )}
-                    </NavList>
+                <NavMenu show={ show } onClick={ () => setShow(!show) }>
+                    <NavItems show={ show }>
+                        <NavList onClick={ (e) => e.stopPropagation() }>
+                            {Links.map(link =>
+                                <NavItem key={ link.id } onClick={ () => setActive(link.id) }>
+                                    <NavLink href={ link.link } active={ active === link.id ? active : '' } onClick={() => setShow(!show)}>{ link.title }</NavLink>
+                                </NavItem>
+                            )}
+                        </NavList>
+                    </NavItems>
                 </NavMenu>
 
                 <div className="nav-toggle">
